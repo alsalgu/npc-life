@@ -14,32 +14,38 @@
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 </head>
 
-<body>
-<!-- Ambiance Selection -->
-<div class="container-fluid h-25 bg-primary">
-  <div id="music" class="container p-2">
-    <button type="button" class="btn btn-secondary">Tavern</button>
-    <button type="button" class="btn btn-secondary">Festival</button>
-  </div>
-  <div id="environment" class="container p-2">
-    <button type="button" class="btn btn-secondary">Rain</button>
-    <button type="button" class="btn btn-secondary">Wind</button>
-  </div>
-</div>
-<!-- Media Player -->
-<div class="container-fluid h-50 bg-light">
-  <div class="form-group">
-    <span class="switch switch-sm">
-      <input type="checkbox" class="switch" id="switch-sm">
-      <label for="switch-sm">Small switch</label>
-    </span>
-  </div>
-</div>
-<!-- SFX Toggles -->
-<div class="container-fluid h-25 bg-primary">
+<body class="p-0">
+  <!-- Media Player -->
+  <div class="container-fluid h-75 bg-light">
 
-</div>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </div>
+  <!-- Ambiance Selection -->
+  <div class="container-fluid bg-primary">
+    <div id="options">
+
+    </div>
+    <div id="music" class="container p-2">
+      <button type="button" class="btn btn-secondary">Tavern</button>
+      <button type="button" class="btn btn-secondary">Festival</button>
+    </div>
+    <div id="environment" class="container p-2">
+      <button type="button" class="btn btn-secondary">Rain</button>
+      <button type="button" class="btn btn-secondary">Wind</button>
+    </div>
+    <div id="SFX" class="container p-2">
+      <div class="form-group text-light m-0">
+        <span class="switch switch-sm">
+        <input type="checkbox" class="switch" id="switch-sm">
+        <label for="switch-sm">Crowd</label>
+      </span>
+        <span class="switch switch-sm">
+        <input type="checkbox" class="switch" id="switch-sm-2">
+        <label for="switch-sm-2">Campfire</label>
+      </span>
+      </div>
+    </div>
+  </div>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </body>
 
