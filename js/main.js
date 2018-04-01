@@ -11,23 +11,28 @@ function getFlickrJSON(buttonText) {
   $.getJSON(flickrURL, function() {
       $("#carouselInner").empty();
       $("#carouselInner").append("<div class='carousel-item active text-center'>" +
-      "<span class='display-1'>NPC Life</span>" + "<h1>" + buttonValue + "</h1>" +
+        "<span class='display-1'>NPC Life</span>" + "<h1>" + buttonValue + "</h1>" +
         "</div>");
     })
     .done(function(val) {
-        var result = val.photos.photo;
-        $.each(result, function(i, val) {
-            var farmId = result[i].farm;
-            var serverId = result[i].server;
-            var id = result[i].id;
-            var secret = result[i].secret;
-            var photoURL = "https://farm" + farmId + ".staticflickr.com/" + serverId + "/" + id + "_" + secret + ".jpg"
-            $("#carouselInner").append("<div class='carousel-item text-center w-100 h-100'>" +
-            "<img class='h-100' src='" + photoURL +"' />" +
-              "</div>");
-            });
-        })
-      .fail(function() {
-        console.log("Error");
+      var result = val.photos.photo;
+      $.each(result, function(i, val) {
+        var farmId = result[i].farm;
+        var serverId = result[i].server;
+        var id = result[i].id;
+        var secret = result[i].secret;
+        var photoURL = "https://farm" + farmId + ".staticflickr.com/" + serverId + "/" + id + "_" + secret + ".jpg"
+        $("#carouselInner").append("<div class='carousel-item text-center w-100 h-100'>" +
+          "<img class='h-100' src='" + photoURL + "' />" +
+          "</div>");
       });
-    }
+    })
+    .fail(function() {
+      console.log("Error");
+    });
+};
+
+function getFreesoundJSON(buttonText){
+  var buttonValue = buttonText
+  var soundURL = "https://freesound.org/apiv2/search/text/?token=opEsO9zEL9n9vCfBDwgleOGT9EpXXs31r9h2SJSz&fields=name,previews,duration&sort=score&filter=duration:[60 TO *]&query=medieval,music," + buttonText
+}
