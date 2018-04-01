@@ -28,6 +28,6 @@ function getFlickrJSON(buttonText) {
             });
         })
       .fail(function() {
-        console.log("error");
+        console.log("Error");
       });
     }
