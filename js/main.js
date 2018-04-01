@@ -10,8 +10,8 @@ function getFlickrJSON(buttonText) {
   var flickrURL = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=3c4d06636e9aab9e37cce43ac03a4544&format=json&text=medieval " + buttonValue + "&nojsoncallback=1&sort=interestingness-desc"
   $.getJSON(flickrURL, function() {
       $("#carouselInner").empty();
-      $("#carouselInner").append("<div class='carousel-item active'>" +
-      "<img class='w-100 h-100' src='#' />" +
+      $("#carouselInner").append("<div class='carousel-item active text-center'>" +
+      "<span class='display-1'>NPC Life</span>" + "<h1>" + buttonValue + "</h1>" +
         "</div>");
     })
     .done(function(val) {
