@@ -65,7 +65,7 @@ $(document).ready(function() {
 
   function getFreesoundJSON(buttonText) {
     var buttonValue = buttonText
-    var soundURL = "https://freesound.org/apiv2/search/text/?token=opEsO9zEL9n9vCfBDwgleOGT9EpXXs31r9h2SJSz&fields=name,previews,duration&sort=rating_desc&filter=duration:[30 TO 99999]&query=" + buttonText
+    var soundURL = "https://freesound.org/apiv2/search/text/?token=opEsO9zEL9n9vCfBDwgleOGT9EpXXs31r9h2SJSz&fields=name,previews,duration&sort=rating_desc&filter=duration:[10 TO *]&query=" + buttonText
     musicList.remove();
     $.getJSON(soundURL, function(val) {
         var result = val.results;
