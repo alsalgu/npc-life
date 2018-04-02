@@ -93,8 +93,11 @@ $(document).ready(function() {
 
   function run(link, player) {
     player.src = link.attr('href');
+    songTitle = link.text();
     par = link.parent();
     par.addClass('active').siblings().removeClass('active');
+    $("#active-song").empty();
+    $("#active-song").append(songTitle);
     audio[0].load();
     audio[0].play();
   }
