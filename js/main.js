@@ -58,12 +58,15 @@ $(document).ready(function() {
   };
 
   var musicList = new jPlayerPlaylist({
-    cssSelector, playlist, options
+    cssSelector,
+    playlist,
+    options
   });
 
   function getFreesoundJSON(buttonText) {
     var buttonValue = buttonText
     var soundURL = "https://freesound.org/apiv2/search/text/?token=opEsO9zEL9n9vCfBDwgleOGT9EpXXs31r9h2SJSz&fields=name,previews,duration&sort=score&filter=duration:[60 TO *]&query=music," + buttonText
+    musicList.remove();
     $.getJSON(soundURL, function(val) {
         var result = val.results;
         $.each(result, function(i, val) {
