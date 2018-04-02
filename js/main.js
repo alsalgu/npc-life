@@ -2,8 +2,8 @@ $(document).ready(function() {
 
   $(".musicButton").each(function() {
     $(this).click(function() {
-      getFlickrJSON($(this).text());
-      getFreesoundJSON($(this).text());
+      getFlickrJSON($(this).val());
+      getFreesoundJSON($(this).attr("name"));
     });
   });
 
@@ -65,7 +65,7 @@ $(document).ready(function() {
 
   function getFreesoundJSON(buttonText) {
     var buttonValue = buttonText
-    var soundURL = "https://freesound.org/apiv2/search/text/?token=opEsO9zEL9n9vCfBDwgleOGT9EpXXs31r9h2SJSz&fields=name,previews,duration&sort=sortc&filter=duration:[60 TO 300]&query=music," + buttonText
+    var soundURL = "https://freesound.org/apiv2/search/text/?token=opEsO9zEL9n9vCfBDwgleOGT9EpXXs31r9h2SJSz&fields=name,previews,duration&sort=rating_desc&filter=duration:[30 TO 99999]&query=" + buttonText
     musicList.remove();
     $.getJSON(soundURL, function(val) {
         var result = val.results;
