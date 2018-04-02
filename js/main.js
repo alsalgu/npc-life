@@ -78,7 +78,7 @@ $(document).ready(function() {
         })
       })
       .done(function() {
-        musicList.play();
+        console.log("pls")
       });
   };
 
