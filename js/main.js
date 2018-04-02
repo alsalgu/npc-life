@@ -38,49 +38,66 @@ $(document).ready(function() {
 
   // Music API //
   // Playlist
-  var cssSelector = {
-    jPlayer: "#jplayer_1",
-    cssSelectorAncestor: "#jp_container_1"
-  };
-
-  var playlist = [];
-
-  var options = {
-    playlistOptions: {
-      enableRemoveControls: true,
-      autoPlay: true
-    },
-    swfPath: "js/jPlayer",
-    supplied: "webmv, ogv, m4v, oga, mp3",
-    smoothPlayBar: true,
-    keyEnabled: true,
-    audioFullScreen: false
-  };
-
-  var musicList = new jPlayerPlaylist({
-    cssSelector,
-    playlist,
-    options
-  });
 
   function getFreesoundJSON(buttonText) {
     var buttonValue = buttonText
     var soundURL = "https://freesound.org/apiv2/search/text/?token=opEsO9zEL9n9vCfBDwgleOGT9EpXXs31r9h2SJSz&fields=name,previews,duration&sort=rating_desc&filter=duration:[10 TO *]&query=" + buttonText
-    musicList.remove();
+    $("#playlist").empty();
     $.getJSON(soundURL, function(val) {
         var result = val.results;
         $.each(result, function(i, val) {
-          musicList.add({
-            title: result[i].name,
-            mp3: result[i].previews["preview-lq-mp3"],
-            oga: result[i].previews["preview-lq-ogg"]
-          });
-        })
+          title = result[i].name;
+          src = result[i].previews["preview-lq-mp3"];
+          src2 = result[i].previews["preview-lq-mp3"];
+          $("#playlist").append(
+            "<li><a href=" + src + ">" + title + "</a></li>");
+        });
       })
       .done(function() {
-        console.log("pls")
+        init();
       });
   };
+
+  var audio;
+  var playlist;
+  var tracks;
+  var current;
+
+
+
+  function init() {
+    current = 0;
+    audio = $('audio');
+    playlist = $('#playlist');
+    tracks = playlist.find('li a');
+    len = tracks.length - 1;
+    audio[0].volume = .10;
+    audio[0].play();
+    playlist.find('a').click(function(event) {
+      event.preventDefault();
+      link = $(this);
+      current = link.parent().index();
+      run(link, audio[0]);
+    });
+    audio[0].addEventListener('ended', function(e) {
+      current++;
+      if (current == len) {
+        current = 0;
+        link = playlist.find('a')[0];
+      } else {
+        link = playlist.find('a')[current];
+      }
+      run($(link), audio[0]);
+    });
+  }
+
+  function run(link, player) {
+    player.src = link.attr('href');
+    par = link.parent();
+    par.addClass('active').siblings().removeClass('active');
+    audio[0].load();
+    audio[0].play();
+  }
 
   // Media Player
 
