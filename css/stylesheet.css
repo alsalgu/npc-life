@@ -3,6 +3,12 @@ html, body {
   width: 100%;
 }
 
+.playlistButton {
+  max-width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* Switch Properties */
 
 .switch {
