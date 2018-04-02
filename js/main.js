@@ -3,6 +3,7 @@ $(document).ready(function() {
   $(".musicButton").each(function() {
     $(this).click(function() {
       getFlickrJSON($(this).text());
+      getFreesoundJSON($(this).text());
     });
   });
 
@@ -37,13 +38,21 @@ $(document).ready(function() {
 
   // Music API //
 
-  // Array WIthin Array
-
-  var testList = {}
-
   function getFreesoundJSON(buttonText) {
     var buttonValue = buttonText
     var soundURL = "https://freesound.org/apiv2/search/text/?token=opEsO9zEL9n9vCfBDwgleOGT9EpXXs31r9h2SJSz&fields=name,previews,duration&sort=score&filter=duration:[60 TO *]&query=medieval,music," + buttonText
+    $.getJSON(soundURL, function() {
+      console.log('It worked.')
+    })
+    .done(function(val){
+      var result = val.results;
+      $.each(result, function(i, val){
+        title = result[i].name;
+        mp3 = result[i].previews["preview-lq-mp3"];
+        oga = result[i].previews["preview-lq-ogg"];
+        console.log(title + ", " + mp3 + ", " + oga);
+      })
+    });
   };
 
   // Media Player
