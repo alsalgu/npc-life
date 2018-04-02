@@ -56,7 +56,7 @@ $(document).ready(function() {
           src = result[i].previews["preview-lq-mp3"];
           src2 = result[i].previews["preview-lq-mp3"];
           $("#playlist").append(
-            "<li><a href=" + src + ">" + title + "</a></li>");
+            "<li class='list-group-item'><a href=" + src + ">" + title + "</a></li>");
         });
       })
       .done(function() {
@@ -75,7 +75,7 @@ $(document).ready(function() {
           src = result[i].previews["preview-lq-mp3"];
           src2 = result[i].previews["preview-lq-mp3"];
           $("#playlist2").append(
-            "<li><a href=" + src + ">" + title + "</a></li>");
+            "<li class='list-group-item'><a href=" + src + ">" + title + "</a></li>");
         });
       })
       .done(function() {
