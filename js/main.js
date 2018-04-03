@@ -1,8 +1,10 @@
 $(document).ready(function() {
 
+// Click Functions
+
   $(".musicButton").each(function() {
     $(this).click(function() {
-      getFlickrJSON($(this).val());
+      getFlickrJSON($(this).val()); 
       getMusicJSON($(this).attr("name"));
     });
   });
@@ -18,7 +20,11 @@ $(document).ready(function() {
   });
 
   $(".dropdown-menu input").click(function() {
+    selection = $(this).parent().siblings().find(".active-selection")
     $(this).closest(".dropdown-menu").prev().dropdown("toggle");
+    $(this).addClass('bg-primary').siblings().removeClass('bg-primary');
+    $(selection).empty();
+    $(selection).append($(this).val());
   });
 
 
