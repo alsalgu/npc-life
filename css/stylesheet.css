@@ -4,7 +4,7 @@ html, body {
 }
 
 .playlistButton {
-  max-width: 250px;
+  max-width: 300px;
   overflow: hidden;
   text-overflow: ellipsis;
 }

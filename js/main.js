@@ -13,6 +13,15 @@ $(document).ready(function() {
     });
   });
 
+  $(".dropdown-menu a").click(function() {
+    $(this).closest(".dropdown-menu").prev().dropdown("toggle");
+  });
+
+  $(".dropdown-menu input").click(function() {
+    $(this).closest(".dropdown-menu").prev().dropdown("toggle");
+  });
+
+
   // FlickR API //
 
   function getFlickrJSON(buttonText) {
@@ -121,31 +130,31 @@ $(document).ready(function() {
   }
 
 
-    function init2() {
-      current2 = 0;
-      audio2 = $('.audio2');
-      playlist2 = $('#playlist2');
-      tracks2 = playlist2.find('li a');
-      len = tracks2.length - 1;
-      audio2[0].volume = .10;
-      audio2[0].play();
-      playlist2.find('a').click(function(event) {
-        event.preventDefault();
-        link = $(this);
-        current2 = link.parent().index();
-        run2(link, audio2[0]);
-      });
-      audio2[0].addEventListener('ended', function(e) {
-        current2++;
-        if (current2 == len) {
-          current2 = 0;
-          link = playlist2.find('a')[0];
-        } else {
-          link = playlist2.find('a')[current2];
-        }
-        run2($(link), audio2[0]);
-      });
-    }
+  function init2() {
+    current2 = 0;
+    audio2 = $('.audio2');
+    playlist2 = $('#playlist2');
+    tracks2 = playlist2.find('li a');
+    len = tracks2.length - 1;
+    audio2[0].volume = .10;
+    audio2[0].play();
+    playlist2.find('a').click(function(event) {
+      event.preventDefault();
+      link = $(this);
+      current2 = link.parent().index();
+      run2(link, audio2[0]);
+    });
+    audio2[0].addEventListener('ended', function(e) {
+      current2++;
+      if (current2 == len) {
+        current2 = 0;
+        link = playlist2.find('a')[0];
+      } else {
+        link = playlist2.find('a')[current2];
+      }
+      run2($(link), audio2[0]);
+    });
+  }
 
   function run(link, player) {
     player.src = link.attr('href');
