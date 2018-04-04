@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-// Click Functions
+  // Click Functions
 
   $(".musicButton").each(function() {
     $(this).click(function() {
@@ -37,7 +37,7 @@ $(document).ready(function() {
     $("#carouselInner").append("<div class='carousel-item active w-100 h-100'>" +
       "<div class='progress'>" +
       "<div class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='100' aria-valuemin='0' aria-valuemax='100' style='width: 100%'></div>" +
-    "</div>" +
+      "</div>" +
       "</div>");
     $.getJSON(flickrURL, function() {
         $("#carouselInner").empty();
@@ -73,11 +73,11 @@ $(document).ready(function() {
     $("#playlist").append("Loading...");
     $.getJSON(soundURL, function(val) {
         var result = val.results;
+        $("#playlist").empty();
         $.each(result, function(i, val) {
           title = result[i].name;
           src = result[i].previews["preview-lq-mp3"];
           src2 = result[i].previews["preview-lq-mp3"];
-          $("#playlist").empty();
           $("#playlist").append(
             "<li class='list-group-item'><a href=" + src + ">" + title + "</a></li>");
         });
@@ -94,11 +94,11 @@ $(document).ready(function() {
     $("#playlist2").append("Loading...");
     $.getJSON(soundURL, function(val) {
         var result = val.results;
+        $("#playlist2").empty();
         $.each(result, function(i, val) {
           title = result[i].name;
           src = result[i].previews["preview-lq-mp3"];
           src2 = result[i].previews["preview-lq-mp3"];
-          $("#playlist2").empty();
           $("#playlist2").append(
             "<li class='list-group-item'><a href=" + src + ">" + title + "</a></li>");
         });
