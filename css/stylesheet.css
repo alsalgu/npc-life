@@ -66,7 +66,7 @@ html, body {
   width: calc(calc(2.375rem * .8) - calc(2px * 2));
   height: calc(calc(2.375rem * .8) - calc(2px * 2));
   border-radius: 50%;
-  background-color: #938435;
+  background-color: #4F3221;
   transition: 0.2s all;
 }
 

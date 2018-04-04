@@ -1,5 +1,16 @@
 $(document).ready(function() {
 
+  //Music Toggles
+
+$(".switch").each(function(){
+  $(this).click(function(){
+    if ($(this).prop("checked") == true) {
+      console.log($(this).attr("id") + " " + $(this).val());
+    } else if ($(this).prop("checked") == false) {
+      console.log("Off")
+    }
+  });
+});
   // Click Functions
 
   $(".musicButton").each(function() {
