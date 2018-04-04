@@ -1,10 +1,11 @@
 html, body {
   height: 100%;
   width: 100%;
+  min-width: 600px;
 }
 
 .playlistButton {
-  max-width: 300px;
+  max-width: 250px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
