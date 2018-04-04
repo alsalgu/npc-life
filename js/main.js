@@ -33,6 +33,12 @@ $(document).ready(function() {
   function getFlickrJSON(buttonText) {
     var buttonValue = buttonText
     var flickrURL = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=3c4d06636e9aab9e37cce43ac03a4544&format=json&text=medieval " + buttonValue + "&nojsoncallback=1&sort=interestingness-desc&privacy_filter=1"
+    $("#carouselInner").empty();
+    $("#carouselInner").append("<div class='carousel-item active w-100 h-100'>" +
+      "<div class='progress'>" +
+      "<div class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='100' aria-valuemin='0' aria-valuemax='100' style='width: 100%'></div>" +
+    "</div>" +
+      "</div>");
     $.getJSON(flickrURL, function() {
         $("#carouselInner").empty();
         $("#carouselInner").append("<div class='carousel-item active text-center'>" +
@@ -53,7 +59,7 @@ $(document).ready(function() {
         });
       })
       .fail(function() {
-        console.log("Error");
+        alert("Error. Please try again.");
       });
   };
 
@@ -64,12 +70,14 @@ $(document).ready(function() {
     var buttonValue = buttonText
     var soundURL = "https://freesound.org/apiv2/search/text/?token=opEsO9zEL9n9vCfBDwgleOGT9EpXXs31r9h2SJSz&fields=name,previews,duration&sort=rating_desc&filter=duration:[10 TO *]&query=" + buttonText
     $("#playlist").empty();
+    $("#playlist").append("Loading...");
     $.getJSON(soundURL, function(val) {
         var result = val.results;
         $.each(result, function(i, val) {
           title = result[i].name;
           src = result[i].previews["preview-lq-mp3"];
           src2 = result[i].previews["preview-lq-mp3"];
+          $("#playlist").empty();
           $("#playlist").append(
             "<li class='list-group-item'><a href=" + src + ">" + title + "</a></li>");
         });
@@ -83,12 +91,14 @@ $(document).ready(function() {
     var buttonValue = buttonText
     var soundURL = "https://freesound.org/apiv2/search/text/?token=opEsO9zEL9n9vCfBDwgleOGT9EpXXs31r9h2SJSz&fields=name,previews,duration&sort=score&filter=duration:[10 TO *]&query=" + buttonText
     $("#playlist2").empty();
+    $("#playlist2").append("Loading...");
     $.getJSON(soundURL, function(val) {
         var result = val.results;
         $.each(result, function(i, val) {
           title = result[i].name;
           src = result[i].previews["preview-lq-mp3"];
           src2 = result[i].previews["preview-lq-mp3"];
+          $("#playlist2").empty();
           $("#playlist2").append(
             "<li class='list-group-item'><a href=" + src + ">" + title + "</a></li>");
         });
