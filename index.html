@@ -9,7 +9,7 @@
   <meta name="description" content="Fantasy Ambiance Generator for all your study, LARPing, DnD, and coding needs.">
   <meta name="keywords" content="keywords, ambiance, generator, dungeons and dragons, DnD, larp, fantasy, medieval">
   <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=font1|font2|etc" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative:700|Raleway" rel="stylesheet">
   <link rel="stylesheet" href="css/stylesheet.css" type="text/css">
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 </head>
@@ -18,14 +18,18 @@
   <!-- Website Container -->
   <div id="primary-view" class="d-flex flex-row w-100 h-100">
     <!-- Side Bar -->
-    <div id="side-view" class="bg-light w-25">
+    <div id="side-view" class="w-25 p-1">
+      <div id="title">
+        <h1 class="displayFont text-center text-light mt-1">NPC Life</h1>
+        <span class="blockquote-footer text-center text-light mb-2">A Fantasy Ambiance Generator</span>
+      </div>
       <!-- Accordion Start -->
       <div id="accordion" role="tablist">
         <!-- First Card -->
-        <div class="card">
-          <div class="card-header" role="tab" id="headingOne">
+        <div class="card bg-info pl-1 pr-1 mb-2">
+          <div class="card-header textFont" role="tab" id="headingOne">
             <h5 class="mb-0">
-              <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <a class="text-light" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                 Atmosphere
               </a>
             </h5>
@@ -37,7 +41,7 @@
               <audio id="volume1" loop controls class="audio1 w-100"></audio>
               <!-- Atmosphere Genre Selection -->
               <div class="btn-group dropright w-100">
-                <button type="button" class="w-100 btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button type="button" class="w-100 btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <span class="active-selection">Atmosphere</span>
                 </button>
                 <div class="dropdown-menu">
@@ -52,11 +56,11 @@
                 </div>
               </div>
               <!-- Atmosphere Media Selection -->
-              <div class="btn-group dropright w-100 mt-1">
-                <button type="button" class="w-100 btn btn-primary dropdown-toggle playlistButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <div class="btn-group dropright w-100 mt-1 mb-1">
+                <button type="button" class="w-100 btn btn-dark dropdown-toggle playlistButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span id="active-song">Select an Atmosphere</span>
               </button>
-                <div class="dropdown-menu bg-light" style="max-height: 200px; overflow: auto">
+                <div class="dropdown-menu bg-info" style="max-height: 200px; overflow: auto">
                   <ul id="playlist" class="list-group">
                     <li class='list-group-item'>
                       Select an Atmosphere
@@ -69,22 +73,22 @@
           </div>
         </div>
         <!-- Second Card -->
-        <div class="card">
-          <div class="card-header" role="tab" id="headingTwo">
+        <div class="card bg-info pl-1 pr-1 mb-2">
+          <div class="card-header textFont" role="tab" id="headingTwo">
             <h5 class="mb-0">
-              <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <a class="collapsed text-light" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                 Ambiance
               </a>
             </h5>
           </div>
-          <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div id="collapseTwo" class="collapse show" role="tabpanel" aria-labelledby="headingTwo">
             <div class="card-body p-0">
               <!-- Ambiance Media Player -->
               <audio id="volume2" loop class="audio2 w-100" controls autoplay>
                   </audio>
               <!-- Ambiance Genre Selection -->
               <div class="btn-group dropright w-100">
-                <button type="button" class="w-100 btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button type="button" class="w-100 btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <span class="active-selection">Ambiance</span>
                   </button>
                 <div class="dropdown-menu w-100">
@@ -99,8 +103,8 @@
                 </div>
               </div>
               <!-- AMbiance Song Selection -->
-              <div class="btn-group dropright w-100 mt-1">
-                <button type="button" class="w-100 btn btn-primary dropdown-toggle playlistButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <div class="btn-group dropright w-100 mt-1 mb-1">
+                <button type="button" class="w-100 btn btn-dark dropdown-toggle playlistButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span id="active-sound2">Select an Ambiance</span>
               </button>
                 <div class="dropdown-menu" style="max-height: 200px; overflow: auto">
@@ -116,10 +120,10 @@
           </div>
         </div>
         <!-- Third Card -->
-        <div class="card">
-          <div class="card-header" role="tab" id="headingThree">
+        <div class="card bg-info pl-1 pr-1 mb-2">
+          <div class="card-header textFont" role="tab" id="headingThree">
             <h5 class="mb-0">
-              <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              <a class="collapsed text-light" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                 SFX Toggles
               </a>
             </h5>
@@ -128,37 +132,37 @@
             <div class="card-body">
               <!-- Audio Toggles -->
               <ul class="list-group">
-                <li class="list-group-item">
+                <li class="list-group-item bg-light">
                   <span class="switch switch-sm">
                     <input type="checkbox" class="switch" id="crowds">
                     <label for="crowds">Crowds</label>
                   </span>
                 </li>
-                <li class="list-group-item">
+                <li class="list-group-item bg-light">
                   <span class="switch switch-sm">
                     <input type="checkbox" class="switch" id="campfire">
                     <label for="campfire">Campfire</label>
                   </span>
                 </li>
-                <li class="list-group-item">
+                <li class="list-group-item bg-light">
                   <span class="switch switch-sm">
                     <input type="checkbox" class="switch" id="wildlife">
                     <label for="wildlife">Wildlife</label>
                   </span>
                 </li>
-                <li class="list-group-item">
+                <li class="list-group-item bg-light">
                   <span class="switch switch-sm">
                     <input type="checkbox" class="switch" id="stream">
                     <label for="stream">Stream</label>
                   </span>
                 </li>
-                <li class="list-group-item">
+                <li class="list-group-item bg-light">
                   <span class="switch switch-sm">
                     <input type="checkbox" class="switch" id="cauldron">
                     <label for="cauldron">Cauldron</label>
                   </span>
                 </li>
-                <li class="list-group-item">
+                <li class="list-group-item bg-light">
                   <span class="switch switch-sm">
                     <input type="checkbox" class="switch" id="harp">
                     <label for="harp">Harp</label>
@@ -176,16 +180,19 @@
           </div>
         </div>
         <!-- End Accordion -->
+        <button id="hide" class="btn btn-primary">Hide Sidebar</button>
       </div>
     </div>
     <!-- Main View Compartment -->
-    <div id="main-view" class="bg-primary w-75">
-      <!-- Photos -->
+    <div id="main-view" class="w-100">
+    <!-- Photos -->
       <div id="photos" class="container-fluid bg-dark text-light p-0 h-100">
+        <button id="show" class="d-none btn btn-primary m-2">Show Sidebar</button>
+
         <div id="carouselExampleIndicators" class="carousel slide w-100 h-100" data-ride="carousel">
           <div id="carouselInner" class="carousel-inner w-100 h-100" role="listbox">
-            <div class="carousel-item active text-center">
-              <span class='display-1'>NPC Life</span>
+            <div class="carousel-item active text-center d-flex align-items-center justify-content-center h-100">
+              <span class='display-1 displayFont'>NPC Life</span>
             </div>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -197,7 +204,7 @@
               <span class="sr-only">Next</span>
             </a>
         </div>
-      </div>
+            </div>
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>

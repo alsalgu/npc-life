@@ -9,6 +9,14 @@ html, body {
   text-overflow: ellipsis;
 }
 
+.displayFont {
+  font-family: 'Cinzel Decorative', cursive;
+}
+
+.textFont {
+  font-family: 'Raleway', sans-serif;
+}
+
 /* Switch Properties */
 
 .switch {
@@ -151,9 +159,7 @@ body {
   margin-top: .75rem;
 }
 
-#playlist
-
-.active a {
+#playlist .active a {
   color: #5DB0E6;
   text-decoration: none;
 }

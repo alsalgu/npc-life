@@ -7,6 +7,15 @@ $(document).ready(function() {
   volume1.volume = 0.1;
   volume2.volume = 0.1;
 
+$("#hide").click(function(){
+  $('#side-view').hide();
+  $('#show').removeClass('d-none');
+})
+
+$("#show").click(function(){
+  $('#side-view').show();
+  $('#show').addClass('d-none');
+})
   //Music Toggles
 
   $(".switch").each(function() {
