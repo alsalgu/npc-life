@@ -80,7 +80,7 @@ $(".switch").each(function(){
 
   function getMusicJSON(buttonText) {
     var buttonValue = buttonText
-    var soundURL = "https://freesound.org/apiv2/search/text/?token=opEsO9zEL9n9vCfBDwgleOGT9EpXXs31r9h2SJSz&fields=name,previews,duration&sort=rating_desc&filter=duration:[10 TO *]&query=" + buttonText
+    var soundURL = "https://freesound.org/apiv2/search/text/?token=opEsO9zEL9n9vCfBDwgleOGT9EpXXs31r9h2SJSz&fields=name,previews,duration&sort=score&page_size=150&filter=duration:[60 TO *]&query=" + buttonText
     $("#playlist").empty();
     $("#playlist").append(" Loading...");
     $.getJSON(soundURL, function(val) {
@@ -101,7 +101,7 @@ $(".switch").each(function(){
 
   function getSoundJSON(buttonText) {
     var buttonValue = buttonText
-    var soundURL = "https://freesound.org/apiv2/search/text/?token=opEsO9zEL9n9vCfBDwgleOGT9EpXXs31r9h2SJSz&fields=name,previews,duration&sort=score&filter=duration:[10 TO *]&query=" + buttonText
+    var soundURL = "https://freesound.org/apiv2/search/text/?token=opEsO9zEL9n9vCfBDwgleOGT9EpXXs31r9h2SJSz&fields=name,previews,duration&sort=score&page_size=150&filter=duration:[60 TO *]&query=loop," + buttonText
     $("#playlist2").empty();
     $("#playlist2").append(" Loading...");
     $.getJSON(soundURL, function(val) {
@@ -171,16 +171,6 @@ $(".switch").each(function(){
       link = $(this);
       current2 = link.parent().index();
       run2(link, audio2[0]);
-    });
-    audio2[0].addEventListener('ended', function(e) {
-      current2++;
-      if (current2 == len) {
-        current2 = 0;
-        link = playlist2.find('a')[0];
-      } else {
-        link = playlist2.find('a')[current2];
-      }
-      run2($(link), audio2[0]);
     });
   }
 
