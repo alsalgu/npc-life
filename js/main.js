@@ -2,16 +2,16 @@ $(document).ready(function() {
 
   //Music Toggles
 
-$(".switch").each(function(){
-  $(this).click(function(){
-    source = "#" + $(this).attr("id") + "-toggle"
-    if ($(this).prop("checked") == true) {
-      $(source)[0].play();
-    } else if ($(this).prop("checked") == false) {
-      $(source)[0].pause();
-    }
+  $(".switch").each(function() {
+    $(this).click(function() {
+      source = "#" + $(this).attr("id") + "-toggle"
+      if ($(this).prop("checked") == true) {
+        $(source)[0].play();
+      } else if ($(this).prop("checked") == false) {
+        $(source)[0].pause();
+      }
+    });
   });
-});
   // Click Functions
 
   $(".musicButton").each(function() {
@@ -80,7 +80,7 @@ $(".switch").each(function(){
 
   function getMusicJSON(buttonText) {
     var buttonValue = buttonText
-    var soundURL = "https://freesound.org/apiv2/search/text/?token=opEsO9zEL9n9vCfBDwgleOGT9EpXXs31r9h2SJSz&fields=name,previews,duration&sort=rating_desc&filter=duration:[10 TO *]&query=" + buttonText
+    var soundURL = "https://freesound.org/apiv2/search/text/?token=opEsO9zEL9n9vCfBDwgleOGT9EpXXs31r9h2SJSz&fields=name,previews,duration&sort=score&page_size=150&filter=duration:[60 TO *]&query=" + buttonText
     $("#playlist").empty();
     $("#playlist").append(" Loading...");
     $.getJSON(soundURL, function(val) {
@@ -101,7 +101,7 @@ $(".switch").each(function(){
 
   function getSoundJSON(buttonText) {
     var buttonValue = buttonText
-    var soundURL = "https://freesound.org/apiv2/search/text/?token=opEsO9zEL9n9vCfBDwgleOGT9EpXXs31r9h2SJSz&fields=name,previews,duration&sort=score&filter=duration:[10 TO *]&query=" + buttonText
+    var soundURL = "https://freesound.org/apiv2/search/text/?token=opEsO9zEL9n9vCfBDwgleOGT9EpXXs31r9h2SJSz&fields=name,previews,duration&sort=score&page_size=150&filter=duration:[60 TO *]&query=loop," + buttonText
     $("#playlist2").empty();
     $("#playlist2").append(" Loading...");
     $.getJSON(soundURL, function(val) {
@@ -145,16 +145,16 @@ $(".switch").each(function(){
       current = link.parent().index();
       run(link, audio[0]);
     });
-    audio[0].addEventListener('ended', function(e) {
-      current++;
-      if (current == len) {
-        current = 0;
-        link = playlist.find('a')[0];
-      } else {
-        link = playlist.find('a')[current];
-      }
-      run($(link), audio[0]);
-    });
+    //audio[0].addEventListener('ended', function(e) {
+    //  current++;
+    //  if (current == len) {
+    //    current = 0;
+    //    link = playlist.find('a')[0];
+    //    } else {
+    //      link = playlist.find('a')[current];
+    //    }
+    //    run($(link), audio[0]);
+    //  });
   }
 
 
@@ -171,16 +171,6 @@ $(".switch").each(function(){
       link = $(this);
       current2 = link.parent().index();
       run2(link, audio2[0]);
-    });
-    audio2[0].addEventListener('ended', function(e) {
-      current2++;
-      if (current2 == len) {
-        current2 = 0;
-        link = playlist2.find('a')[0];
-      } else {
-        link = playlist2.find('a')[current2];
-      }
-      run2($(link), audio2[0]);
     });
   }
 
