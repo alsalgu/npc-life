@@ -18,13 +18,17 @@
   <!-- SFX -->
   <div id="sfx" class="p-1">
     <span class="switch switch-sm text-light">
-      <input type="checkbox" class="switch" id="crowds-toggle">
-      <label for="crowds-toggle">Crowds</label>
+      <input type="checkbox" class="switch" id="crowds">
+      <label for="crowds">Crowds</label>
     </span>
     <span class="switch switch-sm text-light">
-      <input type="checkbox" class="switch" id="campfire-toggle">
-      <label for="campfire-toggle">Campfire</label>
+      <input type="checkbox" class="switch" id="campfire">
+      <label for="campfire">Campfire</label>
     </span>
+    <div class="toggle-audio">
+      <audio loop volume=0.2 id="crowds-toggle" src="static/audio/crowds.mp3"></audio>
+      <audio loop id="campfire-toggle" src="static/audio/campfire.mp3"></audio>
+    </div>
   </div>
   <!-- Photos -->
   <div id="photos" class="container-fluid bg-dark text-light p-0" style="height: 80%">
@@ -47,7 +51,7 @@
   <!-- Media Players -->
   <div id="media" class="row w-100 m-0 mt-2">
     <div id="atmosphere" class="container w-50">
-      <audio id="audio" class="w-100" controls autoplay>
+      <audio id="audio" class="audio1" volume="1.0" class="w-100" controls autoplay>
           </audio>
       <!-- Dropdown -->
       <div class="selection-buttons">
@@ -79,7 +83,7 @@
       </div>
     </div>
     <div id="environment" class="container w-50">
-      <audio class="audio2 w-100" controls autoplay>
+      <audio volume="1.0" class="audio2 w-100" controls autoplay>
           </audio>
       <!-- Dropdown -->
       <div class="btn-group dropup mt-1">

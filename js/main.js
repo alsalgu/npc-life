@@ -4,10 +4,13 @@ $(document).ready(function() {
 
 $(".switch").each(function(){
   $(this).click(function(){
+    source = "#" + $(this).attr("id") + "-toggle"
     if ($(this).prop("checked") == true) {
-      console.log($(this).attr("id") + " " + $(this).val());
+      console.log($(this).attr("id") + " " + $(this).val() + source);
+      $(source)[0].play();
     } else if ($(this).prop("checked") == false) {
       console.log("Off")
+      $(source)[0].pause();
     }
   });
 });
@@ -132,7 +135,7 @@ $(".switch").each(function(){
 
   function init() {
     current = 0;
-    audio = $('audio');
+    audio = $('.audio1');
     playlist = $('#playlist');
     tracks = playlist.find('li a');
     len = tracks.length - 1;
