@@ -13,6 +13,7 @@ $(document).ready(function() {
     $(this).click(function() {
       source = "#" + $(this).attr("id") + "-toggle"
       if ($(this).prop("checked") == true) {
+        $(source)[0].volume = 0.2;
         $(source)[0].play();
       } else if ($(this).prop("checked") == false) {
         $(source)[0].pause();
