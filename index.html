@@ -15,132 +15,191 @@
 </head>
 
 <body class="p-0 bg-dark">
-  <!-- SFX -->
-  <div id="sfx" class="p-1">
-    <span class="switch switch-sm text-light">
-      <input type="checkbox" class="switch" id="crowds">
-      <label for="crowds">Crowds</label>
-    </span>
-    <span class="switch switch-sm text-light">
-      <input type="checkbox" class="switch" id="campfire">
-      <label for="campfire">Campfire</label>
-    </span>
-    <span class="switch switch-sm text-light">
-      <input type="checkbox" class="switch" id="wildlife">
-      <label for="wildlife">Wildlife</label>
-    </span>
-    <span class="switch switch-sm text-light">
-      <input type="checkbox" class="switch" id="stream">
-      <label for="stream">Stream</label>
-    </span>
-    <span class="switch switch-sm text-light">
-      <input type="checkbox" class="switch" id="cauldron">
-      <label for="cauldron">Cauldron</label>
-    </span>
-    <span class="switch switch-sm text-light">
-      <input type="checkbox" class="switch" id="harp">
-      <label for="harp">Harp</label>
-    </span>
-    <div class="toggle-audio">
-      <audio loop id="crowds-toggle" src="static/audio/crowds.mp3"></audio>
-      <audio loop id="campfire-toggle" src="static/audio/campfire.mp3"></audio>
-      <audio loop id="wildlife-toggle" src="static/audio/wildlife.mp3"></audio>
-      <audio loop id="stream-toggle" src="static/audio/stream.mp3"></audio>
-      <audio loop id="cauldron-toggle" src="static/audio/cauldron.mp3"></audio>
-      <audio loop id="harp-toggle" src="static/audio/harp.mp3"></audio>
+  <!-- Website Container -->
+  <div id="primary-view" class="d-flex flex-row w-100 h-100">
+    <!-- Side Bar -->
+    <div id="side-view" class="bg-light w-25">
+      <!-- Accordion Start -->
+      <div id="accordion" role="tablist">
+        <!-- First Card -->
+        <div class="card">
+          <div class="card-header" role="tab" id="headingOne">
+            <h5 class="mb-0">
+              <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Atmosphere
+              </a>
+            </h5>
+          </div>
 
-    </div>
-  </div>
-  <!-- Photos -->
-  <div id="photos" class="container-fluid bg-dark text-light p-0" style="height: 80%">
-    <div id="carouselExampleIndicators" class="carousel slide w-100 h-100" data-ride="carousel">
-      <div id="carouselInner" class="carousel-inner w-100 h-100" role="listbox">
-        <div class="carousel-item active text-center">
-          <span class='display-1'>NPC Life</span>
-        </div>
-      </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-    </div>
-  </div>
-  <!-- Media Players -->
-  <div id="media" class="row w-100 m-0 mt-2">
-    <div id="atmosphere" class="container w-50">
-      <audio loop id="volume1" class="audio1 w-100 volume" controls autoplay>
-          </audio>
-      <!-- Dropdown -->
-      <div class="selection-buttons">
-        <div class="btn-group dropup mt-1">
-          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="active-selection">Atmosphere</span>
-          </button>
-          <div class="dropdown-menu">
-            <input type="button" value="Castle" name="medieval music" class="dropdown-item musicButton" />
-            <input type="button" value="Cave" name="cave" class="dropdown-item musicButton" />
-            <input type="button" value="Dungeon" name="dungeon ambiance" class="dropdown-item musicButton" />
-            <input type="button" value="Festival" name="viking music" class="dropdown-item musicButton" />
-            <input type="button" value="Forest" name="forest" class="dropdown-item musicButton" />
-            <input type="button" value="Music" name="traditional music" class="dropdown-item musicButton" />
-            <input type="button" value="Tavern" name="medieval drums" class="dropdown-item musicButton" />
-            <input type="button" value="Town" name="village farmland" class="dropdown-item musicButton" />
+          <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+            <div class="card-body p-0">
+              <!-- Atmosphere Media Player -->
+              <audio id="volume1" loop controls class="audio1 w-100"></audio>
+              <!-- Atmosphere Genre Selection -->
+              <div class="btn-group dropright w-100">
+                <button type="button" class="w-100 btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="active-selection">Atmosphere</span>
+                </button>
+                <div class="dropdown-menu">
+                  <input type="button" value="Castle" name="medieval music" class="dropdown-item musicButton" />
+                  <input type="button" value="Cave" name="cave" class="dropdown-item musicButton" />
+                  <input type="button" value="Dungeon" name="dungeon ambiance" class="dropdown-item musicButton" />
+                  <input type="button" value="Festival" name="viking music" class="dropdown-item musicButton" />
+                  <input type="button" value="Forest" name="forest" class="dropdown-item musicButton" />
+                  <input type="button" value="Music" name="traditional music" class="dropdown-item musicButton" />
+                  <input type="button" value="Tavern" name="medieval drums" class="dropdown-item musicButton" />
+                  <input type="button" value="Town" name="village farmland" class="dropdown-item musicButton" />
+                </div>
+              </div>
+              <!-- Atmosphere Media Selection -->
+              <div class="btn-group dropright w-100 mt-1">
+                <button type="button" class="w-100 btn btn-primary dropdown-toggle playlistButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span id="active-song">Select an Atmosphere</span>
+              </button>
+                <div class="dropdown-menu bg-light" style="max-height: 200px; overflow: auto">
+                  <ul id="playlist" class="list-group">
+                    <li class='list-group-item'>
+                      Select an Atmosphere
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- End Buttons -->
+            </div>
           </div>
         </div>
-        <!-- Dropdown -->
-        <div class="btn-group dropup mt-1">
-          <button type="button" class=" btn btn-primary dropdown-toggle playlistButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span id="active-song">Select an Atmosphere</span>
-        </button>
-          <div class="dropdown-menu bg-light" style="max-height: 200px; overflow: auto">
-            <ul id="playlist" class="list-group">
-              <li class='list-group-item'>
-                Select an Atmosphere
-              </li>
-            </ul>
+        <!-- Second Card -->
+        <div class="card">
+          <div class="card-header" role="tab" id="headingTwo">
+            <h5 class="mb-0">
+              <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Ambiance
+              </a>
+            </h5>
+          </div>
+          <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+            <div class="card-body p-0">
+              <!-- Ambiance Media Player -->
+              <audio id="volume2" loop class="audio2 w-100" controls autoplay>
+                  </audio>
+              <!-- Ambiance Genre Selection -->
+              <div class="btn-group dropright w-100">
+                <button type="button" class="w-100 btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="active-selection">Ambiance</span>
+                  </button>
+                <div class="dropdown-menu w-100">
+                  <input type="button" value="Rain" name="rain" class="dropdown-item soundButton" />
+                  <input type="button" value="Forest" name="forest" class="dropdown-item soundButton" />
+                  <input type="button" value="Storm" name="Storm" class="dropdown-item soundButton" />
+                  <input type="button" value="Wind" name="Wind" class="dropdown-item soundButton" />
+                  <input type="button" value="Day" name="day" class="dropdown-item soundButton" />
+                  <input type="button" value="Night" name="night nature" class="dropdown-item soundButton" />
+                  <input type="button" value="Sea" name="waves" class="dropdown-item soundButton" />
+
+                </div>
+              </div>
+              <!-- AMbiance Song Selection -->
+              <div class="btn-group dropright w-100 mt-1">
+                <button type="button" class="w-100 btn btn-primary dropdown-toggle playlistButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span id="active-sound2">Select an Ambiance</span>
+              </button>
+                <div class="dropdown-menu" style="max-height: 200px; overflow: auto">
+                  <ul id="playlist2" class="list-group">
+                    <li class='list-group-item'>
+                      Select an Ambiance.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- End Selectors -->
+            </div>
           </div>
         </div>
+        <!-- Third Card -->
+        <div class="card">
+          <div class="card-header" role="tab" id="headingThree">
+            <h5 class="mb-0">
+              <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                SFX Toggles
+              </a>
+            </h5>
+          </div>
+          <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+            <div class="card-body">
+              <!-- Audio Toggles -->
+              <ul class="list-group">
+                <li class="list-group-item">
+                  <span class="switch switch-sm">
+                    <input type="checkbox" class="switch" id="crowds">
+                    <label for="crowds">Crowds</label>
+                  </span>
+                </li>
+                <li class="list-group-item">
+                  <span class="switch switch-sm">
+                    <input type="checkbox" class="switch" id="campfire">
+                    <label for="campfire">Campfire</label>
+                  </span>
+                </li>
+                <li class="list-group-item">
+                  <span class="switch switch-sm">
+                    <input type="checkbox" class="switch" id="wildlife">
+                    <label for="wildlife">Wildlife</label>
+                  </span>
+                </li>
+                <li class="list-group-item">
+                  <span class="switch switch-sm">
+                    <input type="checkbox" class="switch" id="stream">
+                    <label for="stream">Stream</label>
+                  </span>
+                </li>
+                <li class="list-group-item">
+                  <span class="switch switch-sm">
+                    <input type="checkbox" class="switch" id="cauldron">
+                    <label for="cauldron">Cauldron</label>
+                  </span>
+                </li>
+                <li class="list-group-item">
+                  <span class="switch switch-sm">
+                    <input type="checkbox" class="switch" id="harp">
+                    <label for="harp">Harp</label>
+                  </span>
+                </li>
+              </ul>
+              <!-- Hidden Audio Players -->
+              <audio loop id="crowds-toggle" src="static/audio/crowds.mp3"></audio>
+              <audio loop id="campfire-toggle" src="static/audio/campfire.mp3"></audio>
+              <audio loop id="wildlife-toggle" src="static/audio/wildlife.mp3"></audio>
+              <audio loop id="stream-toggle" src="static/audio/stream.mp3"></audio>
+              <audio loop id="cauldron-toggle" src="static/audio/cauldron.mp3"></audio>
+              <audio loop id="harp-toggle" src="static/audio/harp.mp3"></audio>
+            </div>
+          </div>
+        </div>
+        <!-- End Accordion -->
       </div>
     </div>
-    <div id="environment" class="container w-50">
-      <audio id="volume2" loop class="audio2 w-100" controls autoplay>
-          </audio>
-      <!-- Dropdown -->
-      <div class="btn-group dropup mt-1">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span class="active-selection">Ambiance</span>
-          </button>
-        <div class="dropdown-menu">
-          <input type="button" value="Rain" name="rain" class="dropdown-item soundButton" />
-          <input type="button" value="Forest" name="forest" class="dropdown-item soundButton" />
-          <input type="button" value="Storm" name="Storm" class="dropdown-item soundButton" />
-          <input type="button" value="Wind" name="Wind" class="dropdown-item soundButton" />
-          <input type="button" value="Day" name="day" class="dropdown-item soundButton" />
-          <input type="button" value="Night" name="night nature" class="dropdown-item soundButton" />
-          <input type="button" value="Sea" name="waves" class="dropdown-item soundButton" />
-
-        </div>
-      </div>
-      <!-- Dropdown -->
-      <div class="btn-group dropup mt-1">
-        <button type="button" class="btn btn-primary dropdown-toggle playlistButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <span id="active-sound2">Select an Ambiance</span>
-    </button>
-        <div class="dropdown-menu" style="max-height: 200px; overflow: auto">
-          <ul id="playlist2" class="list-group">
-            <li class='list-group-item'>
-              Select an Ambiance.
-            </li>
-          </ul>
+    <!-- Main View Compartment -->
+    <div id="main-view" class="bg-primary w-75">
+      <!-- Photos -->
+      <div id="photos" class="container-fluid bg-dark text-light p-0 h-100">
+        <div id="carouselExampleIndicators" class="carousel slide w-100 h-100" data-ride="carousel">
+          <div id="carouselInner" class="carousel-inner w-100 h-100" role="listbox">
+            <div class="carousel-item active text-center">
+              <span class='display-1'>NPC Life</span>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
         </div>
       </div>
     </div>
   </div>
-
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
