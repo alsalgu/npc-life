@@ -1,5 +1,12 @@
 $(document).ready(function() {
 
+  // Volume
+
+  var volume1 = document.getElementById("volume1");
+  var volume2 = document.getElementById("volume2");
+  volume1.volume = 0.1;
+  volume2.volume = 0.1;
+
   //Music Toggles
 
   $(".switch").each(function() {

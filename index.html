@@ -51,7 +51,7 @@
   <!-- Media Players -->
   <div id="media" class="row w-100 m-0 mt-2">
     <div id="atmosphere" class="container w-50">
-      <audio loop id="audio" class="audio1 w-100" volume="1.0" class="w-100" controls autoplay>
+      <audio loop id="volume1" class="audio1 w-100 volume" controls autoplay>
           </audio>
       <!-- Dropdown -->
       <div class="selection-buttons">
@@ -61,6 +61,7 @@
           </button>
           <div class="dropdown-menu">
             <input type="button" value="Castle" name="medieval music" class="dropdown-item musicButton" />
+            <input type="button" value="Cave" name="cave" class="dropdown-item musicButton" />
             <input type="button" value="Dungeon" name="dungeon ambiance" class="dropdown-item musicButton" />
             <input type="button" value="Festival" name="viking music" class="dropdown-item musicButton" />
             <input type="button" value="Music" name="traditional music" class="dropdown-item musicButton" />
@@ -84,7 +85,7 @@
       </div>
     </div>
     <div id="environment" class="container w-50">
-      <audio loop volume="1.0" class="audio2 w-100" controls autoplay>
+      <audio id="volume2" loop class="audio2 w-100" controls autoplay>
           </audio>
       <!-- Dropdown -->
       <div class="btn-group dropup mt-1">
